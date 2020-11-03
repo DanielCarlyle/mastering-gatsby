@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react';
 //tag template literal - String.raw will work as well
 const gql = String.raw;
 
-const deets = gql`
-    name
-    _id
-    image {
-      asset {
-        url {
-        metadata {
-          lqip
-        }
+const deets = `
+  _id
+  name
+  image {
+    asset {
+      url
+      metadata {
+        lqip
       }
+    }
   }
 `;
 
@@ -50,6 +50,7 @@ export default function useLatestData() {
       .then((res) => {
         // TODO: check for errors
         // set the data to state
+        console.log(res);
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSlicemasters(res.data.StoreSettings.slicemaster);
       })
