@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 
+//tag template literal - String.raw will work as well
 const gql = String.raw;
 
-const deets = `
+const deets = gql`
     name
     _id
     image {
       asset {
-        url
+        url {
         metadata {
           lqip
         }
       }
-    }
+  }
 `;
 
 export default function useLatestData() {
