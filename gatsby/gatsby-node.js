@@ -32,7 +32,7 @@ async function turnPizzasIntoPages({ graphql, actions }) {
 
 //function signature, destructure the actions
 async function turnToppingsIntoPages({ graphql, actions }) {
-  console.log('Turning the toppings into pages');
+  //console.log('Turning the toppings into pages');
   // 1. Get a template for this page
   const toppingTemplate = path.resolve('./src/pages/pizzas.js');
   // 2. Query all the toppings
@@ -69,7 +69,7 @@ async function turnToppingsIntoPages({ graphql, actions }) {
     createContentDigest,
   }) {
     // 1. Fetch a  list of beers (Fetch is a browser API)
-    const res = await fetch('https://sampleapis.com/beers/api/ale');
+    const res = await fetch('https://api.sampleapis.com/beers/ale');
     const beers = await res.json();
     // 2. Loop over each one
     for (const beer of beers) {
@@ -130,7 +130,7 @@ const slicemastersTemplate = path.resolve('./src/templates/Slicemaster.js');
     );
     // 4. Loop from 1 to n and create the pages for them
     Array.from({ length: pageCount }).forEach((_, i) => {
-      console.log(`Creating page ${i}`);
+      //console.log(`Creating page ${i}`);
       actions.createPage({
         path: `/slicemasters/${i + 1}`,
         component: path.resolve('./src/pages/slicemasters.js'),
